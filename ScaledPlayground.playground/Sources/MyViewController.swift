@@ -34,8 +34,6 @@ public final class MyViewController: UIViewController {
             NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0),
             NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
             ])
-        
-        view.transform = CGAffineTransform.identity
     }
     
     public override func viewDidLayoutSubviews() {
