@@ -13,8 +13,9 @@ public final class MyViewController: UIViewController {
     }()
     
     let background: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "iPad.jpg"))
-        imageView.contentMode = .scaleAspectFit
+        let img = UIImage.init(cgImage: UIImage(named: "iPad.jpg")!.cgImage!, scale: 2, orientation: .up)
+        let imageView = UIImageView(image: img)
+        imageView.contentMode = UIView.ContentMode.center
         return imageView
     }()
     
@@ -38,7 +39,7 @@ public final class MyViewController: UIViewController {
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        label.text = String(format: "Screen Size\n%.0f pt\nx\n%.0f pt", view.bounds.width, view.bounds.height)
+        label.text = String(format: "iPad Pro\n%.0f pt\nx\n%.0f pt", view.bounds.width, view.bounds.height)
     }
     
 }

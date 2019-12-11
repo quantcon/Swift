@@ -36,15 +36,15 @@ public func playgroundController(
     
     viewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
     
-    viewController.view.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-        NSLayoutConstraint(item: viewController.view, attribute: .centerX, relatedBy: .equal, toItem: parent.view, attribute: .centerX, multiplier: 1, constant: 0),
-        NSLayoutConstraint(item: viewController.view, attribute: .centerY, relatedBy: .equal, toItem: parent.view, attribute: .centerY, multiplier: 1, constant: 0),
-        NSLayoutConstraint(item: viewController.view, attribute: .width, relatedBy: .equal, toItem: parent.view, attribute: .width, multiplier: 1/scale, constant: 0),
-        NSLayoutConstraint(item: viewController.view, attribute: .height, relatedBy: .equal, toItem: parent.view, attribute: .height, multiplier: 1/scale, constant: 0)
-        ])
-    
-    parent.view.backgroundColor = .white
+    if let childView = viewController.view {
+        childView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint(item: childView, attribute: .centerX, relatedBy: .equal, toItem: parent.view, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: childView, attribute: .centerY, relatedBy: .equal, toItem: parent.view, attribute: .centerY, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: childView, attribute: .width, relatedBy: .equal, toItem: parent.view, attribute: .width, multiplier: 1/scale, constant: 0),
+            NSLayoutConstraint(item: childView, attribute: .height, relatedBy: .equal, toItem: parent.view, attribute: .height, multiplier: 1/scale, constant: 0)
+            ])
+    }
     
     parent.setOverrideTraitCollection(traits, forChild: viewController)
     
